@@ -28,14 +28,14 @@
                 <a class="k-button k-button-icontext k-add-button" href="#"
                     onclick="top.alert('У вас нет прав на добавление курсов')">Добавить курс</a>
             </div>
-            <div id="listView" style="width: 420px; height: 500px; overflow: auto">
+            <div id="listView" style="width: 452px; height: 500px; overflow: auto">
             </div>
             <script type="text/x-kendo-tmpl" id="template">
-                <div class="course-view">
+                <div class="course-view k-widget">
                     <dl>
-                        <h5>#:title#</h5>
+                        <p class="title">#:title#</p>
                         <p>#:description#</p>
-                        <p>#:kendo.toString(year)#</p>
+                        <p class="date">#:kendo.toString(year)#</p>
                     </dl>
                 </div>
             </script>
@@ -69,23 +69,30 @@
             {
                 float: left;
                 position: relative;
-                width: 420px;
+                min-width: 430px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
             }
-            .course-view h5
+            .title
             {
                 text-decoration: underline;
                 font-size: 24px;
+                font-family: Helvetica;
             }
+            .date
+            {
+                float: right;
+            }
+            /*
             .course-view dl
             {
-                margin-bottom: 10px;
-                padding-right: 50px;
-                padding-top: 0px;
-                padding-bottom: 50px;
-                padding-left: 10px;
+                min-height: 100px;
+                padding-right: 10px;
+                padding-left: 15px;
                 border: 2px solid;
-                border-radius: 10px;
-                border-color: #5D5D62;
+                border-radius: 15px;
             }
             /*
             .course-view dt, dd
