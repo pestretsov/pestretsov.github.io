@@ -21,150 +21,111 @@
         <a href="#"><img width="22" height="40" src="http://progexcenter.ru/content/images/logo.png" class="logo"/></a>
     </div>
     <div id="example">
-        <div>
-            <div class="box-col">
-                <h4>Курсы</h4>
-                <div style="margin-bottom: 10px">
-                    <a class="k-button k-button-icontext k-add-button" href="#"  onclick="top.alert('У вас нет прав на добавление курсов')">Добавить курс</a>
-                </div>
-            <!--    <div data-role="listview"
-                    data-edit-template="edit-template"
-                    data-template="template"
-                    data-bind="source: courses,
-                            visible: isVisible,
-                            events: {
-                              save: onSave
-                            }"
-                    style="width: 420px; height: 500px; overflow: auto">
-                </div>
-            </div>-->
-
-        <div id="listView" style="width: 420px; height: 500px; overflow: auto"></div>
-        <script type="text/x-kendo-tmpl" id="template">
-            <div class="product">
-                <dl>
-                    <h5>Название курса</h5>
-                    <p>#:title#</p>
-                    <h5>Начало</h5>
-                    <p>#:kendo.toString(year)#</p>
-                </dl>
+        <div class="box-col">
+            <h4>Курсы</h4>
+            <div style="margin-bottom: 10px">
+                <a class="k-button k-button-icontext k-add-button" href="#"  onclick="top.alert('У вас нет прав на добавление курсов')">Добавить курс</a>
             </div>
-        </script>
+            <div id="listView" style="width: 420px; height: 500px; overflow: auto">
+            </div>
+            <script type="text/x-kendo-tmpl" id="template">
+                <div class="product">
+                    <dl>
+                        <h5>Название курса</h5>
+                        <p>#:title#</p>
+                        <h5>Описание</h5>
+                        <p>#:description#</p>
+                        <h5>Начало</h5>
+                        <p>#:kendo.toString(year)#</p>
+                    </dl>
+                </div>
+            </script>
 
-        <script>
-            var localData = new kendo.data.DataSource({
-                data: courses
-            });
-            $("#listView").kendoListView({
-                dataSource: localData,
-                template: kendo.template($("#template").html())
-            });
-        </script>
-    </div>
-<!--
-<div id="example">
-    <div class="k-content">
-
-        <table id="courses">
-            <thead>
-                <tr>
-                    <th>Название</th>
-                    <th>Дата</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="2"></td>
-                </tr>
-            </tbody>
-        </table>
-
-    </div>
--->
-    <script id="template" type="text/x-kendo-template">
-        <tr>
-            <td>#= title #</td>
-            <td>#= year #</td>
-        </tr>
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            // create a template using the above definition
-            var template = kendo.template($("#template").html());
-
-            var dataSource = new kendo.data.DataSource({
-                data: courses,
-                change: function() { // subscribe to the CHANGE event of the data source
-                    $("#courses tbody").html(kendo.render(template, this.view())); // populate the table
-                }
-            });
-
+            <script>
+                var localData = new kendo.data.DataSource({
+                    data: courses
+                });
+                $("#listView").kendoListView({
+                    dataSource: localData,
+                    template: kendo.template($("#template").html())
+                });
+            </script>
+            <script>
+                $(document).ready(function() {
+                    // create a template using the above definition
+                    var template = kendo.template($("#template").html());
+                    var dataSource = new kendo.data.DataSource({
+                        data: courses,
+                        change: function() { // subscribe to the CHANGE event of the data source
+                            $("#courses tbody").html(kendo.render(template, this.view())); // populate the table
+                        }
+                    });
                     // читаем JSON'ки из файлика courses.js
-            dataSource.read();
-        });
-    </script>
+                    dataSource.read();
+                });
+            </script>
+        </div>
 
-    <style scoped>
-        .product-view
-        {
-            float: left;
-            position: relative;
-            width: 400px;
-            margin: -1px -1px 0 0;
-        }
-        .product-view dl
-        {
-            margin: 10px 0;
-            padding: 0;
-            min-width: 0;
-        }
-        .product-view dt, dd
-        {
-            float: left;
-            margin: 0;
-            padding: 3px;
-            height: 32px;
-            width: 180px;
-            line-height: 32px;
-            overflow: hidden;
-        }
-        .product-view dt
-        {
-            clear: left;
-            padding: 3px 5px 3px 0;
-            text-align: right;
-            opacity: 0.6;
-            width: 100px;
-        }
-        .product-view .k-textbox {
-            width: auto;
-        }
-        .edit-buttons
-        {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 26px;
-            height: 160px;
-            padding: 2px 2px 0 3px;
-            background-color: rgba(0,0,0,0.1);
-        }
-        .edit-buttons .k-button
-        {
-            width: 26px;
-            margin-bottom: 1px;
-        }
-        .k-pager-wrap
-        {
-            border-top: 0;
-        }
-        span.k-invalid-msg
-        {
-            position: absolute;
-            margin-left: 6px;
-        }
-    </style>
+        <style scoped>
+            .product-view
+            {
+                float: left;
+                position: relative;
+                width: 400px;
+                margin: -1px -1px 0 0;
+            }
+            .product-view dl
+            {
+                margin: 10px 0;
+                padding: 0;
+                min-width: 0;
+            }
+            .product-view dt, dd
+            {
+                float: left;
+                margin: 0;
+                padding: 3px;
+                height: 32px;
+                width: 180px;
+                line-height: 32px;
+                overflow: hidden;
+            }
+            .product-view dt
+            {
+                clear: left;
+                padding: 3px 5px 3px 0;
+                text-align: right;
+                opacity: 0.6;
+                width: 100px;
+            }
+            .product-view .k-textbox {
+                width: auto;
+            }
+            .edit-buttons
+            {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 26px;
+                height: 160px;
+                padding: 2px 2px 0 3px;
+                background-color: rgba(0,0,0,0.1);
+            }
+            .edit-buttons .k-button
+            {
+                width: 26px;
+                margin-bottom: 1px;
+            }
+            .k-pager-wrap
+            {
+                border-top: 0;
+            }
+            span.k-invalid-msg
+            {
+                position: absolute;
+                margin-left: 6px;
+            }
+        </style>
     </div>
 </body>
 </html>
