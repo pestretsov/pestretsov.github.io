@@ -22,14 +22,16 @@
             <div class="course-view">
                 <div class="edit-buttons">
                     <div class="edit-buttons">
-                        <a class="k-button k-button-icontext k-add-button" href="#" onclick="top.alert('Damn it!')"><span class="k-icon k-update"></span></a>
+                        <a class="k-button k-button-icontext k-add-button" href="#" onclick="top.alert('Извините, ребятки, но дедлайн поджимал(')"><span class="k-icon k-update"></span></a>
                         <a class="k-button k-button-icontext k-cancel-button" href="#" onclick="$('#courseAdd').hide()"><span class="k-icon k-cancel"></span></a>
                     </div>
                 </div>
                 <input type="text" class="k-textbox edit-title" name="CTitle" placeholder="Название курса"
                        data-bind="value:CTitle" /><br />
-                <textarea type="text" class="k-textbox edit-description" name="courseDescription" placeholder=" Описание"
+                <textarea type="text" class="k-textbox edit-description" name="CDescription" placeholder="Краткое описание"
                        data-bind="value: CDescription" ></textarea><br />
+                <textarea type="text" class="k-textbox edit-description" name="CFullDescription" placeholder="Полное Описание"
+                       data-bind="value: CFullDescription" ></textarea><br />
                 <input type="number" class="k-textbox edit-level" data-bind="value:CLevel" name="CLevel" placeholder="Уровень сложности" min="1" max="5" step="1" required="required" validationMessage="Назначте уровень от 1 до 5"/><br />
                 <input data-role="datepicker" class="edit-date" type="number" name="CDateStart" placeholder="Дата начала курса"
                        data-bind="value: CDateStart"/><br />
@@ -115,6 +117,7 @@
                             fields:{
                                 CTitle: {type:"text"},
                                 CDescription: {type:"text"},
+                                CFullDescription: {type:"text"},
                                 CLevel: {type:"number"},
                                 CDateStart: {type:"text"},
                                 CDateEnd: {type:"text"}
@@ -130,6 +133,8 @@
                         update:{
                         },
                         create: {
+                        },
+                        destroy: {
                         }
                     },
                     parameterMap: function(options, operation) {
@@ -140,14 +145,9 @@
                 })
             });
             kendo.bind($("#test"), viewModel);
-            $(".k-add-button").click(function(e) {
-                listView.add();
-                e.preventDefault();
-            });
         </script>
         <style scoped>
             .course-view
-
             {
                 float: left;
                 position: relative;
@@ -162,7 +162,8 @@
             }
             .title
             {
-                text-decoration: underline;
+
+                font-weight: bold;
                 font-size: 24px;
                 font-family: Helvetica;
                 margin-top: -10px;
@@ -207,6 +208,11 @@
             {
                 width: 350px;
             }
+            .edit-fulldescription
+            {
+                height: 200px;
+                width: 350px;
+            }
             .description
             {
                 font-size: 14px;
@@ -224,7 +230,6 @@
             {
                 height: 100px;
                 width: 350px;
-                font-family: Helvetica;
             }
             .edit-buttons
             {
@@ -256,6 +261,7 @@
                 margin-left: auto;
                 text-align: center;
                 margin-right: auto;
+                width: 491px;
             }
             .box-col
             {
@@ -266,7 +272,7 @@
             }
             body
             {
-                background-color: rgba(0,0,0,0.05);
+                background-color: rgba(0,0,0,0);
                 height: 100%;
                 font-family: Helvetica;
             }
@@ -276,6 +282,7 @@
             }
             #example h1
             {
+                color: rgba(0,0,0,0.5);
                 font-family: Helvetica;
                 font-size: 40px;
                 font-weight: bold;
