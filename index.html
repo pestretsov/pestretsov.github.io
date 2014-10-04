@@ -13,12 +13,11 @@
 </head>
 <body>
     <div class="header">
-
         <a href="http://progexcenter.ru/"><img width="32" height="60" src="http://progexcenter.ru/content/images/logo.png"/></a>
     </div>
     <div id="example" class="box-col" style="width:491px; heignt:100%">
         <h1>Курсы</h1>
-        <button onclick="$('#courseAdd').show()" class="k-button k-button-icontext k-add-button"><span class="k-icon k-add"></span>Добавить курс</button>
+        <button onclick="$('#courseAdd').show()" class="k-button k-button-icontext k-add-button add-button">Добавить курс</button>
         <div id="courseAdd" data-bind="invisible: isInvisible">
             <div class="course-view">
                 <div class="edit-buttons">
@@ -190,23 +189,9 @@
             }
             .header
             {
-                font-family: Helvetica;
-                font-size: 40px;
-                font-weight: bold;
                 margin-left: auto;
-                margin-right: auto;
                 text-align: center;
-                width: 491px;
-            }
-            .logo
-            {
-                position: relative;
-                float: left;
-                padding-left: 100%;
-            }
-            .header p
-            {
-
+                margin-right: auto;
             }
             .box-col
             {
@@ -220,7 +205,17 @@
                 background-color: rgba(0,0,0,0.05);
                 height: 100%;
             }
-
+            .add-button
+            {
+                margin-bottom: 10px;
+            }
+            #example h1
+            {
+                font-family: Helvetica;
+                font-size: 40px;
+                font-weight: bold;
+                text-align: center;
+            }
         </style>
     </div>
 </body>
