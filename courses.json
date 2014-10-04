@@ -1,0 +1,32 @@
+[
+    {
+        "CourseID": 1,
+        "CTitle": "Algorithms",
+        "CDescription": "Курс знакомит слушателей с базовыми алгоритмами (метод «разделяй и властвуй», поиск в массиве, сортировка массива, алгоритмы на графах) и структурами данных (расширяющийся массив, куча, дерево отрезков, системы непересекающихся множеств)."
+    },
+    {
+        "CourseID": 2,
+        "CTitle": "Test",
+        "CDescription": "TestTestTestTestTestTestTestTestTestTestTestTestTest"
+    },
+    {
+        "CourseID": 3,
+        "CTitle": "Test",
+        "CDescription": "TestTestTestTestTestTestTestTestTestTestTestTestTest"
+    },
+    {
+        "CourseID": 4,
+        "CTitle": "Test",
+        "CDescription": "TestTestTestTestTestTestTestTestTestTestTestTestTest"
+    },
+    {
+        "CourseID": 5,
+        "CTitle": "Test",
+        "CDescription": "TestTestTestTestTestTestTestTestTestTestTestTestTest"
+    },
+    {
+        "CourseID": 6,
+        "CTitle": "Test",
+        "CDescription": "TestTestTestTestTestTestTestTestTestTestTestTestTest"
+    }
+]
