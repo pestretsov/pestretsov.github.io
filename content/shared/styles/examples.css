@@ -78,13 +78,13 @@
 
 [class$="Icon"]:after {
   font-family: "widgets";
-  speak: none; 
+  speak: none;
   display: inline-block;
   width: 1em;
   margin-right: .2em;
   font-variant: normal;
-  text-transform: none;     
-  line-height: 1em; 
+  text-transform: none;
+  line-height: 1em;
   margin-left: .2em;
   color: #00B312;
 }
@@ -303,8 +303,8 @@ header
 /* View Beta demos */
 .try-beta-demos {
      text-align: center;
-     color: #0487c4; 
-     background-color: #e5f5fa;  
+     color: #0487c4;
+     background-color: #e5f5fa;
      font-size: 14px;
      padding: 24px 0;
 }
@@ -590,7 +590,7 @@ div.submenu-box ol {
 .mobileScrollViewIcon:after { content: '\e831'; }
 .spaIcon:after { content: '\e832'; }
 .sliderIcon:after { content: '\e833'; }
-.sortableIcon:after { content: '\e834'; } 
+.sortableIcon:after { content: '\e834'; }
 .sparklineIcon:after, .drawingIcon:after { content: '\e835'; }
 .splitterIcon:after { content: '\e836'; }
 .mobileSplitViewIcon:after { content: '\e837'; }
@@ -1190,7 +1190,7 @@ pre.prettyprint
 	color: #036c9c;
     cursor: pointer;
 }
- 
+
 #inspector-header {
     border-bottom: 1px solid #ebecee;
     background: #fdfdfd;
@@ -1245,12 +1245,12 @@ pre.prettyprint
 
 #wrappers-source-code ul li {
     padding: 0 .6em;
-    border-right: 1px solid #ebecee; 
+    border-right: 1px solid #ebecee;
 }
 
 #wrappers-source-code ul li:last-child {
     padding-right: 0;
-    border-right: 0; 
+    border-right: 0;
 }
 
 
@@ -2647,7 +2647,7 @@ a.footer-links:hover,
 #example-search-list li.k-state-focused {
   -webkit-box-shadow: inset 0 0 0 1px #cad0d6;
     box-shadow: inset 0 0 0 1px #cad0d6;
-  
+
 }
 
 #example-search-list li.k-state-hover {
@@ -2659,7 +2659,7 @@ a.footer-links:hover,
       text-decoration: none;
 }
 
-#example-search-list a{   
+#example-search-list a{
     font-size: 13px;
     line-height: 13px;
     color: #2d3e50;

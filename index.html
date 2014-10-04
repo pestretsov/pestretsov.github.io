@@ -26,14 +26,14 @@
                         <a class="k-button k-button-icontext k-cancel-button" href="#" onclick="$('#courseAdd').hide()"><span class="k-icon k-cancel"></span></a>
                     </div>
                 </div>
-                <input type="text" class="k-textbox" name="courseTitle" placeholder="Название"
+                <input type="text" class="k-textbox" name="courseTitle" placeholder="Название курса"
                        data-bind="value:courseTitle" /><br />
-                <input type="text" class="k-textbox" name="courseDecsript" placeholder="Описание"
-                       data-bind="value: courseDecsript" /><br />
+                <textarea type="text" class="k-textbox course-descript" name="courseDescription" placeholder="Описание"
+                       data-bind="value: courseDescription" ></textarea><br />
                 <input type="text" class="k-textbox" name="courseLevel" placeholder="Уровень"
                        data-bind="value: courseLevel" /><br />
                 <input type="number" class="k-textbox" name="courseYear" placeholder="Год"
-                       data-bind="value: courseYear" /><br />
+                       data-bind="value: courseYear"/><br />
 
             </div>
         </div>
@@ -45,7 +45,7 @@
                  data-editable= "true"
                  data-bind="source: products,
                             visible: isVisible"
-                 style="width: 491px; height: 600px; overflow: auto">
+                 style="width: 491px; height: 550px; overflow: auto">
             </div>
         </div>
         <script>
@@ -84,7 +84,7 @@
                         <span data-for="CTitle" class="k-invalid-msg"></span>
                     </p>
                     <p class="description">
-                        <input type="text" class="k-textbox" data-bind="value:CDescription" name="CDescription" required="required" validationMessage="Введите описание" />
+                        <textarea type="text" class="k-textbox description-box" data-bind="value:CDescription" name="CDescription" required="required" validationMessage="Введите описание"></textarea>
                         <span data-for="CDescription" class="k-invalid-msg"></span>
                     </p>
                 </dl>
@@ -124,6 +124,7 @@
         </script>
         <style scoped>
             .course-view
+
             {
                 float: left;
                 position: relative;
@@ -141,6 +142,7 @@
                 text-decoration: underline;
                 font-size: 24px;
                 font-family: Helvetica;
+                margin-top: -15px;
             }
             .level
             {
@@ -153,14 +155,20 @@
             }
             .description
             {
+                font-size: 14px;
+                font-family: Helvetica;
                 position: relative;
                 width: 450px;
                 float: left;
-                padding-top: 5px;
-                padding-bottom: 10px;
+                margin-top: -15px;
             }
-            .course-view .k-textbox {
-                width: auto;
+            .course-view .k-textbox
+            {
+                width: 390px;
+            }
+            .course-view .description-box
+            {
+                height: 100px;
             }
             .edit-buttons
             {
