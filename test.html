@@ -4,6 +4,7 @@
 <head>
     <title>ProgEx</title>
     <meta charset="utf-8">
+<<<<<<< HEAD
     <script src="js/angular.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/kendo.all.min.js"></script>
@@ -138,6 +139,183 @@
             .level
             {
 
+=======
+    <link href="./content/shared/styles/examples-offline.css" rel="stylesheet">
+    <link href="./styles/kendo.common.min.css" rel="stylesheet">
+    <link href="./styles/kendo.default.min.css" rel="stylesheet">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/angular.min.js"></script>
+    <script src="./js/kendo.all.min.js"></script>
+    <script src="./content/shared/js/console.js"></script>
+    <script src="./myjs.js"></script>
+    <script src="./courses.js"></script>
+</head>
+<body>
+    <div>
+        <a href="#"><img width="22" height="40"
+            src="http://progexcenter.ru/content/images/logo.png" class="logo"/></a>
+    </div>
+
+    <div id="example">
+            <h4>Курсы</h4>
+            <div style="margin-bottom: 10px">
+                <a class="k-button k-button-icontext k-add-button" href="#"
+                    onclick="top.alert('У вас нет прав на добавление курсов')">Добавить курс</a>
+            </div>
+
+            <div data-role="listview"
+                 data-edit-template="edit-template"
+                 data-template="template"
+                 data-bind="source: courses,
+                            visible: isVisible" style="width: 477px; height: 500px; overflow: auto">
+            </div>
+
+            <script type="text/x-kendo-tmpl" id="template">
+                <div class="course-view">
+                    <div class="edit-buttons">
+                        <a class="k-button k-button-icontext k-edit-button" href="\\#"><span class="k-icon k-edit"></span></a>
+                        <a class="k-button k-button-icontext k-delete-button" href="\\#"><span class="k-icon k-delete"></span></a>
+                    </div>
+                    <dl>
+                        <p class="title">#:title#</p>
+                        <p class="description">#:description#</p>
+                    </dl>
+                </div>
+            </script>
+            <script type="text/x-kendo-tmpl" id="edit-template">
+                <div class="course-view">
+                    <div class="edit-buttons">
+                        <a class="k-button k-button-icontext k-update-button" href="\\#"><span class="k-icon k-update"></span></a>
+                        <a class="k-button k-button-icontext k-cancel-button" href="\\#"><span class="k-icon k-cancel"></span></a>
+                    </div>
+                    <dl>
+                        <p class="title">
+                            <input type="text" class="k-textbox" data-bind="value:title" name="title" required="required" validationMessage="required" />
+                            <span data-for="title" class="k-invalid-msg"></span>
+                        </p>
+                        <p class="description">
+                            <input type="text" class="k-textbox" data-bind="value:desctiption" name="desctiption" required="required" validationMessage="required" />
+                            <span data-for="desctiption" class="k-invalid-msg"></span>
+                        </p>
+                    </dl>
+                </div>
+            </script>
+            <script>
+                var coursesNextID = courses.length + 1;
+
+                function getIndexById(id) {
+                    var idx,
+                    l = courses.length;
+
+                    for (var j; j < l; j++) {
+                        if (courses[j].CourseID == id) {
+                            return j;
+                        }
+                    }
+                    return null;
+                }
+/*
+                $(document).ready(function() {
+                    var localData = new kendo.data.DataSource({
+                        data: courses,
+                        transport: {
+                            read: function (e) {
+                                // get and print on success
+                                e.success(courses);
+                            },
+                            create: function (e) {
+                                // assign an ID to the new item
+                                e.data.CourseID = coursesNextID++;
+                                // save data item to the original datasource
+                                courses.push(e.data);
+                                e.success(e.data);
+                            },
+                            update: function (e) {
+                                // locate item in original datasource and update it
+                                courses[getIndexById(e.data.CourseID)] = e.data;
+                                e.success();
+                            }
+                        },
+                        schema: {
+                            model: {
+                                id: "CourseID",
+                                fields: {
+                                    title: { validation: { required: true } },
+                                    description: { validation: { required: true } },
+                                    year: { validation: { required: true} }
+                                }
+                            }
+                        }
+                    });
+/*s
+                    $("#listView").kendoListView({
+                        dataSource: localData,
+                        template: kendo.template($("#template").html()),
+                        edittemplate: kendo.template($("#edit-template").html()),
+                    });*/
+                    var viewModel = kendo.observable({
+                        isVisible: true,
+                        courses: new kendo.data.DataSource ({
+                        transport: {
+                            read: function (e) {
+                                // get and print on success
+                                e.success(courses);
+                            },
+                            create: function (e) {
+                                // assign an ID to the new item
+                                e.data.CourseID = coursesNextID++;
+                                // save data item to the original datasource
+                                courses.push(e.data);
+                                e.success(e.data);
+                            },
+                            update: function (e) {
+                                // locate item in original datasource and update it
+                                courses[getIndexById(e.data.CourseID)] = e.data;
+                                e.success();
+                            }
+                        },
+                        schema: {
+                            model: {
+                                id: "CourseID",
+                                fields: {
+                                    title: { validation: { required: true } },
+                                    description: { validation: { required: true } },
+                                    year: { validation: { required: true} }
+                                }
+                            }
+                        }
+                    })
+                });
+                    kendo.bind($("#example"), viewModel);
+
+
+            </script>
+
+
+        <style scoped>
+            .course-view
+            {
+                float: left;
+                position: relative;
+                width: 452px;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border: 2px solid;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            .title
+            {
+                text-decoration: underline;
+                font-size: 24px;
+                font-family: Helvetica;
+            }
+            .level
+            {
+
+>>>>>>> FETCH_HEAD
             }
             .date
             {
